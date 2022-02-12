@@ -1,36 +1,66 @@
-const {
-    Command
-} = require('discord-akairo')
+const {Command} = require('discord-akairo')
 const Discord = require('discord.js');
+const packageJSON = require("../../../package.json");
 
-class botInfos extends Command {
-    constructor() {
+class BotInfosCommand extends Command{
+    constructor(){
         super('botinfos', {
             aliases: ['botinfos'],
-        });
-    }
-
-    exec(message) {
-
-        const embed = new Discord.MessageEmbed()
-            .setAuthor(this.client.user.username, this.client.user.avatarURL)
-            .setColor(0x00A2E8)
-            .addField("Memoire", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}` + "MBS", true)
-            .addField("Latence", Date.now() - message.createdTimestamp + "ms", true)
-            .addField('Utilisateurs Totales', `${this.client.users.cache.size}`, true)
-            .addField('Channels Totales', `${this.client.channels.cache.size}`, true)
-            .addField('Serveurs Totales', this.client.guilds.cache.size.toLocaleString(), true)
-            .addField('Date de création du bot', this.client.user.createdAt.toLocaleString())
-            .addField('Librairie', `discord.js 13`, true)
-            .addField('Node.js Version', process.version, true)
-            .addField('Bot Version', "0.1.2", true)
-            .setTimestamp()
-            .setFooter(this.client.user.username, this.client.user.avatarURL);
-
-        message.channel.send({
-            embeds: [embed]
+            category: 'Misc',
+            description: {
+                content: "La commande botinfos renvoi des informations sur le bot",
+                usage: 'botinfos',
+                examples: ['botinfos']
+            }
         })
     }
+
+    exec(message){
+        const embedInfos = new Discord.MessageEmbed()
+            .setAuthor(this.client.user.username)
+            .setColor(0x00A2E8)
+            .addFields(
+                {
+                    name: "Mémoire",
+                    value: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MBS` ,
+                    inline: true
+                },
+                {
+                    name: "Latence",
+                    value: `${(Date.now() - message.createdTimestamp)} ms`,
+                    inline: true
+                },
+                {
+                    name: "Utilisateurs",
+                    value: `${this.client.users.cache.size}`,
+                    inline: true
+                },
+                {
+                    name: "Serveurs",
+                    value: `${this.client.guilds.cache.size}`,
+                    inline: true
+                },
+                {
+                    name: "Library",
+                    value: `${packageJSON.dependencies["discord.js"]}`,
+                    inline: true
+                },
+                {
+                    name: "NodeJS",
+                    value: `${process.version}`
+                },
+                {
+                    name: "Version",
+                    value: `${packageJSON.version}`
+                }
+            )
+            .setTimestamp()
+            .setFooter(this.client.user.username, this.client.user.avatarURL)
+
+            message.channel.send({embeds: [embedInfos]})
+    }
+
 }
 
-module.exports = botInfos;
+
+module.exports = BotInfosCommand

@@ -1,12 +1,16 @@
-const {
-    Command
-} = require('discord-akairo')
+const {Command} = require('discord-akairo')
 const Discord = require('discord.js');
 
-class HugCommand extends Command {
-    constructor() {
+class HugCommand extends Command{
+    constructor(){
         super('hug', {
-            aliases: ['hug']
+            aliases: ['hug'],
+            category: 'Fun',
+            description: {
+                content: "La commande hug permet de réconforter quelqu'un (soooo cute !)",
+                usage: 'hug <membre>',
+                examples: ['hug @Patou']
+            }
         });
     }
        
@@ -40,15 +44,15 @@ class HugCommand extends Command {
             .setAuthor(message.author.username, message.author.displayAvatarURL({dynamic : true}))
             .setImage(gif)
             .setTimestamp() 
-            .setFooter(`Commande by Phénix Team's`)
             
             
             message.channel.send({embeds: [lien]})
         }
     }
+
 }
 
-module.exports = HugCommand;
 
+module.exports = HugCommand
 
 

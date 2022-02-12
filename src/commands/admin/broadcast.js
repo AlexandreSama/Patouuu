@@ -1,33 +1,46 @@
-const {
-    Command
-} = require('discord-akairo');
-const { ChannelTypes } = require('discord.js');
+const {Command} = require('discord-akairo')
 
-class BroadcastCommand extends Command {
-    constructor() {
+class BroadcastCommand extends Command{
+    constructor(){
         super('broadcast', {
-            aliases: ['broadcast', 'bdc', 'bd'],
-            args: [{
-                id: "broadcastMessage", match: "content"
-            }]
-        });
+            aliases: ['broadcast', 'bc'],
+            ownerOnly: true,
+            category: 'Administration/Owner',
+            description: {
+                content: "La commande broadcast permet a mes créateurs de partager des annonces sur chaque serveur",
+                usage: 'broadcast <annonce>',
+                examples: ['broadcast Je suis beau !']
+            }
+        })
     }
 
-    exec(message, args) {
-        message.delete();
+    exec(message){
+        this.client.guilds.cache.each(guild => {
+            try {
+                let updateChannel = guild.channels.cache.find(channel => channel.name === "updatePatou")
 
-        if(message.author.id === "724693796499095552" || message.author.id === "256892994504884224"){
-            this.client.channels.cache.forEach(channel => {
-                if(channel.name === "maj-patouuu-bot"){
-                    channel.send({content: args.broadcastMessage})
+                if (updateChannel) {
+                    updateChannel.permissionOverwrites.create(updateChannel.guild.roles.everyone, {SEND_MESSAGES : false})
+                    updateChannel.send(message.content)
                 }else{
-                    console.log('test')
+                    guild.channels.create("updatePatou", {
+                        type: "text",
+                        topic: "Changelogs de Patou",
+                        permissionOverwrites: [{
+                            id: guild.roles.everyone,
+                            deny: ['SEND_MESSAGES']
+                        }]
+                    }).then(() => {
+                        updateChannel.send(message.content)
+                    })
                 }
-            })
-        }else{
-            message.channel.send("Pauvre fou, tu n'a pas la force nécessaire pour faire cet commande")
-        }
+            } catch (error) {
+                console.log(error)
+            }
+        })
     }
+
 }
 
-module.exports = BroadcastCommand;
+
+module.exports = BroadcastCommand

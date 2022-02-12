@@ -1,12 +1,16 @@
-const {
-    Command
-} = require('discord-akairo')
+const {Command} = require('discord-akairo')
 const Discord = require('discord.js');
 
 class PunchCommand extends Command {
     constructor() {
         super('punch', {
-            aliases: ['punch']
+            aliases: ['punch'],
+            category: 'Fun',
+            description: {
+                content: "La commande punch permet de frapper quelqu'un (sadique :eyes:)",
+                usage: 'punch <membre>',
+                examples: ['punch @Patou']
+            }
         });
     }
        
@@ -36,9 +40,7 @@ class PunchCommand extends Command {
             .setTitle(message.author.username + "   frappe   " + member.user.username)
             .setAuthor(message.author.username, message.author.displayAvatarURL({dynamic : true}))
             .setImage(gif)
-            .setTimestamp() 
-            .setFooter(`Commande by Phénix Team's`)
-            
+            .setTimestamp()
             
             message.channel.send({embeds: [lien]})
         }
@@ -46,6 +48,3 @@ class PunchCommand extends Command {
 }
 
 module.exports = PunchCommand;
-
-
-

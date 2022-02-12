@@ -1,12 +1,16 @@
-const {
-    Command
-} = require('discord-akairo')
+const {Command} = require('discord-akairo')
 const Discord = require('discord.js');
 
-class MeurtreCommand extends Command {
+class KillCommand extends Command {
     constructor() {
-        super('meurtre', {
-            aliases: ['meurtre', 'kill', 'tuer']
+        super('kill', {
+            aliases: ['kill'],
+            category: 'Fun',
+            description: {
+                content: "La commande kill permet de tuer quelqu'un (Hmm...)",
+                usage: 'kill <membre>',
+                examples: ['kill @Patou']
+            }
         });
     }
        
@@ -27,19 +31,14 @@ class MeurtreCommand extends Command {
             let gif = rando_imgs[Math.floor(Math.random() * rando_imgs.length)]
             let lien =  new Discord.MessageEmbed()
             .setColor('#6100FF')
-            .setTitle(message.author.username + "   frappe   " + member.user.username)
+            .setTitle(message.author.username + "   a tué   " + member.user.username)
             .setAuthor(message.author.username, message.author.displayAvatarURL({dynamic : true}))
             .setImage(gif)
-            .setTimestamp() 
-            .setFooter(`Commande by Phénix Team's`)
-            
+            .setTimestamp()  
             
             message.channel.send({embeds: [lien]})
         }
     }
 }
 
-module.exports = MeurtreCommand;
-
-
-
+module.exports = KillCommand;

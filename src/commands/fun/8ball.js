@@ -1,37 +1,42 @@
-const {
-    Command
-} = require('discord-akairo')
+const {Command} = require('discord-akairo')
 const Discord = require('discord.js');
 
-class heightBall extends Command {
-    constructor() {
+class HeigthBallCommand extends Command{
+    constructor(){
         super('8ball', {
             aliases: ['8ball'],
-            args: [{
-                id: "question",
-                match: 'content'
-            }]
+            args: [
+                {
+                    id: "question", match: 'content'
+                }
+            ],
+            category: 'Fun',
+            description: {
+                content: "La commande 8ball permet de poser une question au bot (Attention, mes réponses ne sont pas toujours les plus sympathiques !)",
+                usage: '8ball <question>',
+                examples: ['8ball Est-ce que je suis le meilleur ?']
+            }
         });
     }
 
-    exec(message, args) {
+    exec(message){
         message.delete()
 
         var res = ["Oui", "Non", "Peut-être", "Probablement", "A voir", "Surement pas", "Challah", "Miskine", "Starfoullah m'parle pas!", "Mec sort de chez toi !", "Je ne suis qu'une IA , pas une voyante.", "Ca me paraît possible"]
 
-        if (!args.question) {
-            message.channel.send('Posez au moins une question.')
-            return;
-        }
+        if(!args.question){ 
+            message.channel.send('Posez au moins une question.') 
+            return; 
+        } 
         // Creates an ambed and picks a random answer from the answer array 
-        let embed = new Discord.MessageEmbed()
-            .addField("Question", args.question, true)
-            .addField("Réponse", (res[Math.floor(Math.random() * res.length)]), true)
-            .setColor('42c2f4')
-        message.channel.send({
-            embeds: [embed]
-        })
+        let embed = new Discord.MessageEmbed() 
+        .addField("Question", args.question, true) 
+        .addField("Réponse", (res[Math.floor(Math.random() * res.length)]), true) 
+        .setColor('42c2f4') 
+        message.channel.send({embeds: [embed]}) 
     }
+
 }
 
-module.exports = heightBall;
+
+module.exports = HeigthBallCommand

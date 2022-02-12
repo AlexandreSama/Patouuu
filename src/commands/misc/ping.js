@@ -1,17 +1,23 @@
-const {
-    Command
-} = require('discord-akairo')
+const {Command} = require('discord-akairo')
 
-class PingCommand extends Command {
-    constructor() {
+class PingCommand extends Command{
+    constructor(){
         super('ping', {
-            aliases: ['ping']
-        });
+            aliases: ['ping'],
+            category: 'Misc',
+            description: {
+                content: "La commande ping est ... inutile ?",
+                usage: 'ping',
+                examples: ['ping']
+            }
+        })
     }
 
-    exec(message) {
-        return message.reply('Pong !');
+    exec(message){
+        return message.reply('pong!')
     }
+
 }
 
-module.exports = PingCommand;
+
+module.exports = PingCommand
