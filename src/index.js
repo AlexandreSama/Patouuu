@@ -9,7 +9,7 @@ const io = require('@pm2/io')
 setInterval(() => {
     request("http://45.155.170.110:3001/api/push/zoftCAkwkC?msg=OK&ping=")
     console.log('ping status page')
-  }, 2000);
+}, 2000);
 
 let client = new EtoClient({
     prefix: "+"
