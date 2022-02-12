@@ -16,7 +16,7 @@ module.exports = class EtoClient extends AkairoClient {
             presence: {
                 status: "online",
                 activities: [{
-                    name: "Mes commandes +aides",
+                    name: "+help",
                     type: "LISTENING"
                 }]
             },
