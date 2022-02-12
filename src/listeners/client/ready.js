@@ -12,7 +12,7 @@ class ReadyListener extends Listener{
 
     exec(){
 
-        console.log('Sarah est la meilleure !');
+        console.log('Nique sa mère !');
 
         const connection = mysql.createConnection({
             host: config.mysqlAuth.host,
