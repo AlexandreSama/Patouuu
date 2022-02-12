@@ -16,6 +16,7 @@
     "mongoose": "^6.0.13",
     "mysql2": "^2.3.3",
     "reconlx": "^2.5.1",
+    "request": "^2.88.2",
     "snekfetch": "^4.0.4"
   }
 }

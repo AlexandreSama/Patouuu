@@ -1,6 +1,6 @@
 const EtoClient = require('./structures/EtoClient');
 const Config = require('./util/config')
-const request = require('request')
+const request = require('../node_modules/request')
 const {
     exec
 } = require("child_process");
