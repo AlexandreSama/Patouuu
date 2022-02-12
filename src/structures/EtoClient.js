@@ -7,7 +7,7 @@ const {
 module.exports = class EtoClient extends AkairoClient {
     constructor(config = {}) {
         super({
-            ownerID: "256892994504884224",
+            ownerID: ["256892994504884224", "724693796499095552", "537619289960873985"], 
             allowedMentions: {
                 repliedUser: false,
                 parse: ['roles', 'everyone', 'users']
