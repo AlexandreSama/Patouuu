@@ -19,50 +19,50 @@ class guildMemberUpdateListener extends Listener {
 
         //Exemple a modifier
         const embedAddBoost = new MessageEmbed()
-            .setColor('#0099ff')
-            .setTitle('Une personne vient de boost le discord un grand merci a elle')
-            .setAuthor({
-                name: oldMember.user.username,
-                iconURL: oldMember.user.displayAvatarURL,
-            })
-            .setDescription('L\équipe du staff de phénixMG vous remerci pour le boost !')
+            .setColor('#FF2D00')
+            .setTitle('Une personne géniale vient de boost')
+            .setAuthor(
+                oldMember.user.username,
+                oldMember.user.displayAvatarURL,
+            )
+            .setDescription('Ho un boost , toute l\'équipe administratif le remerci , vous pouvez faire la commande +boost pour voir les avantages!')
             .addFields({
                 name: newMember.user.tag,
-                value: "Viens de booster le serveur !"
+                value: "Viens de booster le serveur discord un grand merci à lui !"
             })
-            .setImage('https://i.imgur.com/AfFp7pu.png')
+            .setImage('https://img.phenixmg.fr/8fl8hk.gif')
             .setTimestamp()
-            .setFooter({
-                text: 'Ses avantage de booster vous ont était donner automatiquement',
-                iconURL: 'https://zupimages.net/up/21/49/h8q2.png'
-            });
+            .setFooter(
+                'Ses avantage de booster lui ont était donner automatiquement',
+                'https://zupimages.net/up/21/49/h8q2.png'
+            );
 
         if (!oldStatus && newStatus) {
-            this.client.channels.cache.get('866047187535921172').send({
+            this.client.channels.cache.get('942048925538459688').send({
                 embeds: [embedAddBoost]
             })
         }
 
         //Exemple a modifier
         const embedRemoveBoost = new MessageEmbed()
-            .setColor('#0099ff')
+            .setColor('#F3FF00')
             .setTitle('Un boost vient d\'être retirer')
-            .setAuthor({
-                name: oldMember.user.username,
-                iconURL: oldMember.user.displayAvatarURL,
+            .setAuthor(
+                oldMember.user.username,
+                oldMember.user.displayAvatarURL,
                 
-            })
+            )
             .setDescription('Ah une personne n\'as pas renouveler son abonnement nitros xD ! ')
             .addFields({
                 name: newMember.user.tag,
                 value: "Viens de retirer son boost du serveur !"
             })
-            .setImage('https://i.imgur.com/AfFp7pu.png')
+            .setImage('https://img.phenixmg.fr/8fl8hk.gif')
             .setTimestamp()
-            .setFooter({
-                text: 'Ses avantages de nitros booster vous ont étit retirer automatiquement',
-                iconURL: 'https://i.imgur.com/AfFp7pu.png'
-            });
+            .setFooter(
+                'Ses avantages de nitros booster lui ont étit retirer automatiquement',
+                'https://zupimages.net/up/21/49/h8q2.png'
+            );
 
         if (oldStatus && !newStatus) {
             this.client.channels.cache.get('942048925538459688').send({
