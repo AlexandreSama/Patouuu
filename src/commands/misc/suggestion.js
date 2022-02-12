@@ -10,7 +10,13 @@ class SuggestionCommand extends Command {
             aliases: ['suggestion', 'suggest'],
             args: [{
                 id: "suggestion", match: "content"
-            }]
+            }],
+            category: 'Misc',
+            description: {
+                content: "La commande suggestion permet de créé une suggestion ",
+                usage: 'suggest/suggestion',
+                examples: ['suggest Ajouter un salon de pub']
+            }
         });
     }
 
