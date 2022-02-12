@@ -27,11 +27,11 @@ module.exports = class EtoClient extends AkairoClient {
             allowMention: true,
             prefix: config.prefix,
             defaultCooldown: 2000,
-            directory: './src/commands/',
+            directory: './commands/',
         });
 
         this.ListenerHandler = new ListenerHandler(this, {
-            directory: './src/listeners/'
+            directory: './listeners/'
         });
 
         this.CommandHandler.loadAll();

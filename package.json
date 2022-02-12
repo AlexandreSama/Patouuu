@@ -1,13 +1,21 @@
 {
-  "name": "eto",
+  "name": "patouuu",
   "version": "1.0.0",
-  "description": "A Bot",
+  "description": "A Bot for the server PhenixMG",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexandreSama/Patouuu.git"
+  },
   "author": "Alexandre|Patouuu",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexandreSama/Patouuu/issues"
+  },
+  "homepage": "https://github.com/AlexandreSama/Patouuu#readme",
   "dependencies": {
     "@pm2/io": "^5.0.0",
     "common-tags": "^1.8.2",
