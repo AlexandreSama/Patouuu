@@ -17,13 +17,14 @@ class BroadcastCommand extends Command{
     exec(message){
         this.client.guilds.cache.each(guild => {
             try {
-                let updateChannel = guild.channels.cache.find(channel => channel.name === "updatePatou")
+                let updateChannel = guild.channels.cache.find(channel => channel.name === "maj-patouuu-bot")
+                console.log(updateChannel)
 
                 if (updateChannel) {
                     updateChannel.permissionOverwrites.create(updateChannel.guild.roles.everyone, {SEND_MESSAGES : false})
                     updateChannel.send(message.content)
                 }else{
-                    guild.channels.create("updatePatou", {
+                    guild.channels.create("maj-patouuu-bot", {
                         type: "text",
                         topic: "Changelogs de Patou",
                         permissionOverwrites: [{
