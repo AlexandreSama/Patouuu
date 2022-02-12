@@ -19,7 +19,6 @@ io.action('pull github data (met a jour le bot si tu préfére connard !)', (cb)
         return cb({
             success: "Action effectué avec succés"
         })
-
     });
 })
 
