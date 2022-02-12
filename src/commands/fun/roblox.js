@@ -11,7 +11,13 @@ class RobloxCommand extends Command {
             aliases: ['roblox'],
             args: [{
                 id: "robloxUsername", match: "content"
-            }]
+            }],
+            category: 'Fun',
+            description: {
+                content: "La commande roblox permet d'avoir des infos sur un compte roblox ",
+                usage: 'roblox',
+                examples: ['roblox PatouuuTv']
+            }
         });
     }
        
