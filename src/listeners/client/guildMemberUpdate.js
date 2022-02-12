@@ -31,7 +31,7 @@ class guildMemberUpdateListener extends Listener{
         }
 
         if(oldStatus && !newStatus){
-            this.client.channels.cache.get('866047187535921172').send(`Oh déséspoir, ${newMember.user.tag} viens de retirer son boost !`)
+            this.client.channels.cache.get('942048925538459688').send(`Oh déséspoir, ${newMember.user.tag} viens de retirer son boost !`)
         }
     }
 }
