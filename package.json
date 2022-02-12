@@ -1,0 +1,21 @@
+{
+  "name": "eto",
+  "version": "1.0.0",
+  "description": "A Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexandre|Patouuu",
+  "license": "ISC",
+  "dependencies": {
+    "@pm2/io": "^5.0.0",
+    "discord-akairo": "github:Tricked-dev/discord-akairo",
+    "discord.js": "^13.3.1",
+    "moment": "^2.29.1",
+    "mongoose": "^6.0.13",
+    "mysql2": "^2.3.3",
+    "reconlx": "^2.5.1",
+    "snekfetch": "^4.0.4"
+  }
+}
